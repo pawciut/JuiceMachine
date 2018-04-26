@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace JM
 {
-    public class MainWindowViewModel : BindableBase
+    public class MainWindowViewModel /*: BindableBase*/
     {
         public string Title { get; set; } = "JuiceMachineApp";
         
@@ -24,15 +24,20 @@ namespace JM
 
         public ICommand AddCommand { get; set; }
 
+
         public MainWindowViewModel()
         {
             ListProducts.Add(new Banana());
             ListProducts.Add(new Milk());
             ListProducts.Add(new Strawberry());
 
-            //    AddCommand = new DelegateCommand();
+            AddCommand = new DelegateCommand(AddCommandExecute);
         }
 
+        public void AddCommandExecute()
+        {
+
+        }
     }
 
     
