@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,14 +15,14 @@ namespace JM
         }
         
 
-        void AddIngridient(Ingridient ingridient)
+        public void AddIngridient(Ingridient ingridient)
         {
             Ingridients.Add(ingridient);
         }
 
         public abstract decimal MaxCapacity { get;  } 
         public abstract string NameJuiceMachine { get;  }
-        public List<Ingridient> Ingridients { get; set; }
+        public ObservableCollection<Ingridient> Ingridients { get; set; } = new ObservableCollection<Ingridient>();
     }
 
     class Juice

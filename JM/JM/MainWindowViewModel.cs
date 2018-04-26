@@ -39,7 +39,7 @@ namespace JM
 
         public void AddCommandExecute()
         {
-            
+            CurrentJuiceMachine.AddIngridient(SelectedIngridient);
         }
     }
 
