@@ -1,0 +1,82 @@
+﻿<Window x:Class="JM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JM"
+        mc:Ignorable="d"
+        Title="{Binding Title}" Height="350" Width="525">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <ListView Grid.Column="0" ItemsSource="{Binding ListProducts}"  HorizontalContentAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Code}" Grid.Column="1"/>
+                        <Image Source="{Binding Icon}" Grid.Column="0" Height="32" Width="32"/>
+                        <TextBlock Text="{Binding DefaultSize}" Grid.Column="2" TextAlignment="Right" />
+
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button Content="Add" Command="{Binding AddCommand}"/>
+            
+            <TextBox Grid.Column="1">
+
+            </TextBox>
+            <Button Grid.Row="1" Grid.ColumnSpan="2" Content="MakeJuice"></Button>
+        </Grid>
+
+        <StackPanel Grid.Column="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+
+                    <ColumnDefinition/>
+
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Text="{Binding CurrentJuiceMachine.NameJuiceMachine}" Grid.ColumnSpan="2" />
+                <TextBlock  Grid.Column="0" Grid.Row="1" Text="Max Capacity"></TextBlock>
+                <TextBlock  Grid.Column="1" Grid.Row="1" Text="{Binding CurrentJuiceMachine.MaxCapacity}" Grid.ColumnSpan="2"></TextBlock>
+            </Grid>
+            <TextBlock Text="Ingredience:" Margin="0,10,0,0"/>
+            <ListBox>
+                <ListBoxItem Content="banana  0,5"/>
+                <ListBoxItem Content="milk  0,5"/>
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</Window>
