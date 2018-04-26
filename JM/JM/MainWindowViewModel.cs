@@ -24,6 +24,11 @@ namespace JM
 
         public ICommand AddCommand { get; set; }
 
+        public Ingridient SelectedIngridient
+        {
+            get;
+            set;
+        }
 
         public MainWindowViewModel()
         {
@@ -36,7 +41,7 @@ namespace JM
 
         public void AddCommandExecute()
         {
-
+            
         }
     }
 

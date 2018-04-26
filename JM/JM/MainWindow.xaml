@@ -17,7 +17,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <ListView Grid.Column="0" ItemsSource="{Binding ListProducts}"  HorizontalContentAlignment="Stretch">
+        <ListView Grid.Column="0" ItemsSource="{Binding ListProducts}" SelectedItem="{Binding SelectedIngridient}" HorizontalContentAlignment="Stretch">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
