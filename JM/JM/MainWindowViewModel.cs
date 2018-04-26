@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace JM
 {
-    public class MainWindowViewModel /*: BindableBase*/
+    public class MainWindowViewModel : BindableBase
     {
         public string Title { get; set; } = "JuiceMachineApp";
         
@@ -24,8 +24,20 @@ namespace JM
 
         public ICommand AddCommand { get; set; }
 
-        public Ingridient SelectedIngridient { get; set; }
-        
+        Ingridient selectedIngridient;
+        public Ingridient SelectedIngridient
+        {
+            get
+            {
+                return selectedIngridient;
+            }
+            set
+            {
+                selectedIngridient = value;
+                this.RaisePropertyChanged();
+            }
+        }
+
 
         public MainWindowViewModel()
         {

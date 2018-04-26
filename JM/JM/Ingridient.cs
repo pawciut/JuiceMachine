@@ -14,7 +14,9 @@ namespace JM
 
         public abstract  string Icon { get;   }
 
-        
+        public decimal Size { get; set; } 
+
+
     }
 
     class Banana : Ingridient
@@ -29,6 +31,7 @@ namespace JM
         public override string Code => "Banan";
 
         public override string Icon => "http://www.i2clipart.com/cliparts/a/8/7/2/clipart-bananas-icon-a872.png";
+
     }
     class Milk : Ingridient
     {
