@@ -12,11 +12,13 @@ namespace JM
         {
             return new Juice();
         }
+        
 
         void AddIngridient(Ingridient ingridient)
         {
             Ingridients.Add(ingridient);
         }
+
         public abstract decimal MaxCapacity { get;  } 
         public abstract string NameJuiceMachine { get;  }
         public List<Ingridient> Ingridients { get; set; }

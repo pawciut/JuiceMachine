@@ -24,17 +24,15 @@ namespace JM
 
         public ICommand AddCommand { get; set; }
 
-        public Ingridient SelectedIngridient
-        {
-            get;
-            set;
-        }
+        public Ingridient SelectedIngridient { get; set; }
+        
 
         public MainWindowViewModel()
         {
             ListProducts.Add(new Banana());
             ListProducts.Add(new Milk());
             ListProducts.Add(new Strawberry());
+            
 
             AddCommand = new DelegateCommand(AddCommandExecute);
         }
