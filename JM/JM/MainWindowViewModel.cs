@@ -34,6 +34,8 @@ namespace JM
             set
             {
                 selectedIngridient = value;
+                selectedIngridient.Size = value.DefaultSize;
+          
                 this.RaisePropertyChanged();
             }
         }

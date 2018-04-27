@@ -14,7 +14,7 @@ namespace JM
 
         public abstract  string Icon { get;   }
 
-        public decimal Size { get; set; } 
+        public decimal Size { get; set; }
 
 
     }
