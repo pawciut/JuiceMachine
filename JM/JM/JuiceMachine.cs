@@ -16,13 +16,18 @@ namespace JM
         
 
         public void AddIngridient(Ingridient ingridient)
+            
         {
             Ingridients.Add(ingridient);
+            
         }
 
-        public abstract decimal MaxCapacity { get;  } 
+        public abstract decimal MaxCapacity { get;  }
         public abstract string NameJuiceMachine { get;  }
         public ObservableCollection<Ingridient> Ingridients { get; set; } = new ObservableCollection<Ingridient>();
+        
+        
+
     }
 
     class Juice

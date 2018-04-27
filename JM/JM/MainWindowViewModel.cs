@@ -24,6 +24,8 @@ namespace JM
 
         public ICommand AddCommand { get; set; }
 
+        
+
         Ingridient selectedIngridient;
         public Ingridient SelectedIngridient
         {
@@ -33,8 +35,10 @@ namespace JM
             }
             set
             {
+                
                 selectedIngridient = value;
                 selectedIngridient.Size = value.DefaultSize;
+                
           
                 this.RaisePropertyChanged();
             }
@@ -53,9 +57,32 @@ namespace JM
 
         public void AddCommandExecute()
         {
-            CurrentJuiceMachine.AddIngridient(SelectedIngridient);
+
+            if (SelectedIngridient != null)
+            {
+
+                CurrentJuiceMachine.AddIngridient(SelectedIngridient);
+            }
+
+
+
+            //chce by dodane do sokowirówki elementy nie przekraczały maxymalnej objentości tj.3l
+            //if (CurrentJuiceMachine. < CurrentJuiceMachine.MaxCapacity) ; //obecna sokowirowka dodaje elementy, mają one być < od pojemnosci obecnnej sokowiróki - jest to źle zapisane i nie wiem jak to zapisac  
+            //{
+            //    CurrentJuiceMachine.AddIngridient(SelectedIngridient);
+            //}
+
+            //if (SelectedIngridient.DefaultSize < CurrentJuiceMachine.MaxCapacity) ;
+            //{
+            //    CurrentJuiceMachine.AddIngridient(SelectedIngridient);
+            //}
+
+
         }
+
     }
+
+    
 
     
 }

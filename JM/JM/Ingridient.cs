@@ -10,12 +10,13 @@ namespace JM
     {
         public abstract decimal DefaultSize { get; }
 
-        public abstract string Code { get;  }
+        public abstract string Code { get; }
 
-        public abstract  string Icon { get;   }
+        public abstract string Icon { get; }
 
         public decimal Size { get; set; }
 
+        
 
     }
 
