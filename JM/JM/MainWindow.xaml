@@ -84,7 +84,7 @@
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="{Binding Code}" Grid.Column="1"/>
                             <Image Source="{Binding Icon}" Grid.Column="0" Height="32" Width="32"/>
-                            <TextBlock Text="{Binding DefaultSize}" Grid.Column="2" TextAlignment="Right" />
+                            <TextBlock Text="{Binding Size}" Grid.Column="2" TextAlignment="Right" />
 
                         </Grid>
                     </DataTemplate>
