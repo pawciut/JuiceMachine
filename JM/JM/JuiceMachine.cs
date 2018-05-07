@@ -18,16 +18,33 @@ namespace JM
         public void AddIngridient(Ingridient ingridient)
             
         {
-            Ingridients.Add(ingridient);
-            
+            if (ingridient != null)
+            {
+                if(CurrentCapacity + ingridient.Size <= MaxCapacity)
+                {
+                    Ingridients.Add(ingridient);
+                }
+            }
+
+        }
+
+        public decimal CurrentCapacity
+        {
+            get
+            {
+                decimal suma = 0;
+                foreach (var ingridient in Ingridients)
+                {
+                    suma += ingridient.Size;
+                }
+                return suma;
+            }
         }
 
         public abstract decimal MaxCapacity { get;  }
         public abstract string NameJuiceMachine { get;  }
         public ObservableCollection<Ingridient> Ingridients { get; set; } = new ObservableCollection<Ingridient>();
-        
-        
-
+     
     }
 
     class Juice
