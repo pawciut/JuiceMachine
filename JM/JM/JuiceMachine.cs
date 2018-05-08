@@ -13,19 +13,63 @@ namespace JM
         {
             return new Juice();
         }
-        
-
+      
         public void AddIngridient(Ingridient ingridient)
-            
         {
             if (ingridient != null)
             {
                 if(CurrentCapacity + ingridient.Size <= MaxCapacity)
                 {
-                    Ingridients.Add(ingridient);
-                }
-            }
+  
+                    if (Ingridients.Count == 0)
+                    {
+                        Ingridients.Add(ingridient);
+                    }
+                    else
+                    {
+                        Ingridient ingridientInList;
+                        for (int i = 0; i < Ingridients.Count; i++)//tworzymy pętle która ma wykonywać czynnosć określoną ilośc razy
+                        {
+                            ingridientInList = Ingridients[i];//wyciagam element z listy który znajduje sie na pozycji i
+                            if (ingridient.Code == ingridientInList.Code)
+                            {
+                                ingridientInList.Size = ingridient.Size + ingridientInList.Size;
+                                /*ingridient.Size = ingridient.Size + ingridientInList.Size;*/ //wyciagnięty element z listy dodajemy do dodawanego już - jeśli jest ta sama nazwa
+                                                                                               // ingriedient.Size - jest to wartość która jest zczytywana 
 
+
+                            }
+                            else
+                            {
+                                Ingridients.Add(ingridient);
+                            }
+
+                        }
+                    }
+
+
+
+                      
+
+
+
+                    //foreach (var ing in Ingridients)// przechodzi nam po każdym elemencie
+                    //{
+
+                    //    if (ingridient.Code == ing.Code)
+
+                    //    {
+
+                    //    }
+                    //    //ingridient.Size = ingridient.Size + ing.Size;
+                    //    //Ingridients.Add(ingridient);
+                    //}
+
+
+                }
+            
+            }
+      
         }
 
         public decimal CurrentCapacity
@@ -52,7 +96,6 @@ namespace JM
 
     }
   
-
     class ZelmerJuiceMachine : JuiceMashine
     {
         public override decimal MaxCapacity
