@@ -9,70 +9,89 @@ namespace JM
 {
     public abstract class JuiceMashine
     {
+
         Juice MakeJuice()
         {
             return new Juice();
         }
-      
+
+
         public void AddIngridient(Ingridient ingridient)
         {
             if (ingridient != null)
             {
+
                 if(CurrentCapacity + ingridient.Size <= MaxCapacity)
                 {
-  
-                    if (Ingridients.Count == 0)
+
+                    Ingridients.Add(ingridient);
+
+
+                    foreach (Ingridient ing in Ingridients)
                     {
-                        Ingridients.Add(ingridient);
-                    }
-                    else
-                    {
-                        Ingridient ingridientInList;
-                        for (int i = 0; i < Ingridients.Count; i++)//tworzymy pętle która ma wykonywać czynnosć określoną ilośc razy
+                        
+
+                        if (ing.Code == ingridient.Code)
                         {
-                            ingridientInList = Ingridients[i];//wyciagam element z listy który znajduje sie na pozycji i
-                            if (ingridient.Code == ingridientInList.Code)
-                            {
-                                ingridientInList.Size = ingridient.Size + ingridientInList.Size;
-                                /*ingridient.Size = ingridient.Size + ingridientInList.Size;*/ //wyciagnięty element z listy dodajemy do dodawanego już - jeśli jest ta sama nazwa
-                                                                                               // ingriedient.Size - jest to wartość która jest zczytywana 
-
-
-                            }
-                            else
-                            {
-                                Ingridients.Add(ingridient);
-                            }
-
+                            
+                            ing.Size = ing.Size + ingridient.Size;
                         }
+
+                        else
+                        {
+                            Ingridients.Add(ingridient);
+                        }
+                        
                     }
 
+                    // //potrzebuje zapisac gdzie jest obiekt dodany
 
 
-                      
+                    // if(ingridient.Code != Ingridients[]) //Nie wiem jak zapisać NIE ZNAJDUJE SIE NA LISCIE            //jeśli składnika nie ma na liscie dodaj składnik innego typu do listy
+                    //     //jeśli składnik o tej nazwie nie jest zawarty w tej tablicy Ingridients            NIEWIEM JAK TO ZAPISAC
+                    // {
+                    //     Ingridients.Add(ingridient); //dodaj kolejny przedmiot
+                    // }
+                    // else          //jeśli składnik jest na liście dodaj do istniejącego size //przeciwieństwo że jest na liscie
+                    // {
+                    //     ingridient.Size + obecny juz na liscie ten sam typ = pokaz sume typu
+                    // }
 
 
 
-                    //foreach (var ing in Ingridients)// przechodzi nam po każdym elemencie
+                    //1. dodaj przedmmiot do listy
+
+                    //2. if (dodany przedmiot ma taki code jak istniejacy już na liscie)
+                    // {
+                    //     To z sumuj ich wartosc i wyswiet w istniejacym juz na liscie
+                    // }
+                    //3. else
+                    // {
+                    //     dodaj do listy przedmiot
+                    // }
+
+
+                    //Ingridient ingridientInList;
+
+
+
+
+                    //ingridientInList = Ingridients[];
+
+
+                    //if (ingridient.Code == ingridientInList.Code)
                     //{
+                    //    ingridientInList.Size = ingridient.Size + ingridientInList.Size;
 
-                    //    if (ingridient.Code == ing.Code)
-
-                    //    {
-
-                    //    }
-                    //    //ingridient.Size = ingridient.Size + ing.Size;
-                    //    //Ingridients.Add(ingridient);
                     //}
-
-
+                    //else
+                    //{
+                    //    Ingridients.Add(ingridient);
+                    //}
                 }
-            
             }
-      
         }
-
-        public decimal CurrentCapacity
+        public decimal CurrentCapacity //włąsciwość która na poczatku ma wartośc 0 i dla kazdego ingrideient z listy Ingridients wykona działanie by do 0 dodać size który jest zadeklarowany i zwróć ta sume.
         {
             get
             {
@@ -84,19 +103,15 @@ namespace JM
                 return suma;
             }
         }
-
         public abstract decimal MaxCapacity { get;  }
         public abstract string NameJuiceMachine { get;  }
-        public ObservableCollection<Ingridient> Ingridients { get; set; } = new ObservableCollection<Ingridient>();
-     
+        public ObservableCollection<Ingridient> Ingridients { get; set; } = new ObservableCollection<Ingridient>();//pojemniczek na nasze produkty//*****//powiadamia o tym ze element został dodany do Ingridients poprzez INotifyPropertChange
     }
-
     class Juice
     {
 
     }
-  
-    class ZelmerJuiceMachine : JuiceMashine
+    class ZelmerJuiceMachine : JuiceMashine //przypisane na sztywno własciwosci
     {
         public override decimal MaxCapacity
         {
@@ -117,3 +132,52 @@ namespace JM
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Ingridient ingridientInList;
+
+//ingridientInList = Ingridients[];
+
+//if (ingridient.Code == ingridientInList.Code)//sprawdzenie czy taki code jest na liscie z dodawnym
+//{
+//    ingridientInList.Size = ingridient.Size + ingridientInList.Size;
+//}
+//else
+//{
+
+
+//}
+
+//ingridientInList -  na liscie
+//ingridient - dodawany
+
+
+
+//foreach (var ing in Ingridients)// przechodzi nam po każdym elemencie
+//{
+
+//    if (ingridient.Code == ing.Code)
+
+//    {
+
+//    }
+//    //ingridient.Size = ingridient.Size + ing.Size;
+//    //Ingridients.Add(ingridient);
+//}

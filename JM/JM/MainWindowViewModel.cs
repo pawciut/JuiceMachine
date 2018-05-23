@@ -17,6 +17,7 @@ namespace JM
         
         public List<Ingridient> ListProducts { get; set; } = new List<Ingridient>();
 
+        
         public ICommand AddCommand { get; set; }
 
         Ingridient selectedIngridient;
@@ -30,17 +31,15 @@ namespace JM
             {
                 selectedIngridient = value;
                 selectedIngridient.Size = value.DefaultSize;
-               
                 this.RaisePropertyChanged();
             }
         }
-
         public MainWindowViewModel()
         {
             ListProducts.Add(new Banana());
             ListProducts.Add(new Milk());
             ListProducts.Add(new Strawberry());
-           
+         
             AddCommand = new DelegateCommand(AddCommandExecute);
         }
 

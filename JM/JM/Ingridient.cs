@@ -15,12 +15,10 @@ namespace JM
         public abstract string Icon { get; }
 
         public decimal Size { get; set; }
-
     }
 
     class Banana : Ingridient
     {
-        
         public override decimal DefaultSize => 0.5m;
 
         public override string Code => "Banan";
