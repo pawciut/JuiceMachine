@@ -39,7 +39,7 @@ namespace JM
             ListProducts.Add(new Banana());
             ListProducts.Add(new Milk());
             ListProducts.Add(new Strawberry());
-         
+            
             AddCommand = new DelegateCommand(AddCommandExecute);
         }
 

@@ -21,74 +21,35 @@ namespace JM
             if (ingridient != null)
             {
 
-                if(CurrentCapacity + ingridient.Size <= MaxCapacity)
+                if (CurrentCapacity + ingridient.Size <= MaxCapacity)
                 {
+                    bool isEmpty = Ingridients.Count == 0;
 
-                    Ingridients.Add(ingridient);
+                    bool isExi = Ingridients.Any(exi => exi.Code == ingridient.Code);
 
-
-                    foreach (Ingridient ing in Ingridients)
+                    if (isEmpty)
                     {
-                        
 
-                        if (ing.Code == ingridient.Code)
-                        {
-                            
-                            ing.Size = ing.Size + ingridient.Size;
-                        }
-
-                        else
-                        {
-                            Ingridients.Add(ingridient);
-                        }
-                        
+                        Ingridients.Add(ingridient);
                     }
 
-                    // //potrzebuje zapisac gdzie jest obiekt dodany
+                    else if (isExi)
+                    {
 
-
-                    // if(ingridient.Code != Ingridients[]) //Nie wiem jak zapisać NIE ZNAJDUJE SIE NA LISCIE            //jeśli składnika nie ma na liscie dodaj składnik innego typu do listy
-                    //     //jeśli składnik o tej nazwie nie jest zawarty w tej tablicy Ingridients            NIEWIEM JAK TO ZAPISAC
-                    // {
-                    //     Ingridients.Add(ingridient); //dodaj kolejny przedmiot
-                    // }
-                    // else          //jeśli składnik jest na liście dodaj do istniejącego size //przeciwieństwo że jest na liscie
-                    // {
-                    //     ingridient.Size + obecny juz na liscie ten sam typ = pokaz sume typu
-                    // }
-
-
-
-                    //1. dodaj przedmmiot do listy
-
-                    //2. if (dodany przedmiot ma taki code jak istniejacy już na liscie)
-                    // {
-                    //     To z sumuj ich wartosc i wyswiet w istniejacym juz na liscie
-                    // }
-                    //3. else
-                    // {
-                    //     dodaj do listy przedmiot
-                    // }
-
-
-                    //Ingridient ingridientInList;
-
-
-
-
-                    //ingridientInList = Ingridients[];
-
-
-                    //if (ingridient.Code == ingridientInList.Code)
-                    //{
-                    //    ingridientInList.Size = ingridient.Size + ingridientInList.Size;
-
-                    //}
-                    //else
-                    //{
-                    //    Ingridients.Add(ingridient);
-                    //}
+                        foreach (Ingridient ing in Ingridients)
+                        {
+                            if(ing.Code == ingridient.Code)
+                            {
+                                ing.Size = ing.Size + ingridient.Size;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Ingridients.Add(ingridient);
+                    }
                 }
+
             }
         }
         public decimal CurrentCapacity //włąsciwość która na poczatku ma wartośc 0 i dla kazdego ingrideient z listy Ingridients wykona działanie by do 0 dodać size który jest zadeklarowany i zwróć ta sume.
@@ -180,4 +141,87 @@ namespace JM
 //    }
 //    //ingridient.Size = ingridient.Size + ing.Size;
 //    //Ingridients.Add(ingridient);
+//}
+
+//przed pętla musze mieć cos na tablicy bo przy urzyciu breakpointow mnie  wyrzuca odrazu
+//foreach (Ingridient ing in Ingridients)
+//{
+
+
+//    if (ing.Code != ingridient.Code)    //jeśli "code" nie wystepuje na liscie dodaj
+//    {
+
+//       /* Ingridients.Add(ingridient);*/        //tu dodaje element na liste
+//    }
+
+//    if (ing.Code == ingridient.Code)    // jeśli "code" jest na liscie 
+//    {
+//        ing.Size = ing.Size + ingridient.Size;      //tu nie dodaje elementu tylko sumuje wartość
+
+//    }
+
+
+
+
+
+//}
+
+//if (Ingridients.Contains("Banan", "Mleko", "Truskawka"))
+//{
+//    ing.Size = ing.Size + ingridient.Size;
+//}
+
+
+
+
+
+
+
+
+
+
+
+// //potrzebuje zapisac gdzie jest obiekt dodany
+
+
+// if(ingridient.Code != Ingridients[]) //Nie wiem jak zapisać NIE ZNAJDUJE SIE NA LISCIE            //jeśli składnika nie ma na liscie dodaj składnik innego typu do listy
+//     //jeśli składnik o tej nazwie nie jest zawarty w tej tablicy Ingridients            NIEWIEM JAK TO ZAPISAC
+// {
+//     Ingridients.Add(ingridient); //dodaj kolejny przedmiot
+// }
+// else          //jeśli składnik jest na liście dodaj do istniejącego size //przeciwieństwo że jest na liscie
+// {
+//     ingridient.Size + obecny juz na liscie ten sam typ = pokaz sume typu
+// }
+
+
+
+//1. dodaj przedmmiot do listy
+
+//2. if (dodany przedmiot ma taki code jak istniejacy już na liscie)
+// {
+//     To z sumuj ich wartosc i wyswiet w istniejacym juz na liscie
+// }
+//3. else
+// {
+//     dodaj do listy przedmiot
+// }
+
+
+//Ingridient ingridientInList;
+
+
+
+
+//ingridientInList = Ingridients[];
+
+
+//if (ingridient.Code == ingridientInList.Code)
+//{
+//    ingridientInList.Size = ingridient.Size + ingridientInList.Size;
+
+//}
+//else
+//{
+//    Ingridients.Add(ingridient);
 //}

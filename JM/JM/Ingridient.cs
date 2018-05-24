@@ -26,20 +26,26 @@ namespace JM
         public override string Icon => "http://www.i2clipart.com/cliparts/a/8/7/2/clipart-bananas-icon-a872.png";
 
     }
-    class Milk : Ingridient
-    {
-        public override decimal DefaultSize => 0.8m;
+        class Milk : Ingridient
+        {
+            public override decimal DefaultSize => 0.8m;
 
-        public override string Code => "Mleko";
+            public override string Code => "Mleko";
 
-        public override string Icon => "http://icons.iconarchive.com/icons/jommans/cafe-noon/128/milk-icon.png";
+            public override string Icon => "http://icons.iconarchive.com/icons/jommans/cafe-noon/128/milk-icon.png";
+
+
+        }
+        class Strawberry : Ingridient
+        {
+            public override decimal DefaultSize => 0.2m;
+
+            public override string Code => "Truskawka";
+
+            public override string Icon => "https://vignette.wikia.nocookie.net/farmville2/images/6/6d/Strawberry.png/revision/latest?cb=20121010115153";
+
+
+        }
     }
-    class Strawberry : Ingridient
-    {
-        public override decimal DefaultSize => 0.2m;
 
-        public override string Code => "Truskawka";
 
-        public override string Icon => "https://vignette.wikia.nocookie.net/farmville2/images/6/6d/Strawberry.png/revision/latest?cb=20121010115153";
-    }
-}
