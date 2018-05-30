@@ -31,7 +31,7 @@ namespace JM
             {
                 selectedIngridient = value;
                 selectedIngridient.Size = value.DefaultSize;
-                this.RaisePropertyChanged();
+                //this.RaisePropertyChanged();
             }
         }
         public MainWindowViewModel()

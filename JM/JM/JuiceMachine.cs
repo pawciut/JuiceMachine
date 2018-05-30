@@ -1,14 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace JM
 {
+
+    
+
     public abstract class JuiceMashine
+    
     {
+      
 
         Juice MakeJuice()
         {
@@ -98,11 +104,132 @@ namespace JM
 
 
 
+//public abstract class Base : INotifyPropertyChanged
+//{
+//    public event PropertyChangedEventHandler PropertyChanged;
+
+//    public decimal TotalSize
+//    {
+//        get { return this.ing.Size + this.ingridient.Size; }
+//    }
+
+//    private void OnPropertyChanged(decimal sizeA)
+//    {
+//        if (PropertyChanged != null)
+//        {
+//            PropertyChanged(this, new PropertyChangedEventArgs(sizeA));
+//        }
+//    }
+//    private decimal sizeX;
+
+//    public decimal SizeX
+//    {
+//        get { return sizeA; }
+//        set
+//        {
+//            sizeA = value;
+//            OnPropertyChanged("SizeX");
+//        }
+//    }
+//}
+
+//public class Rozmiar : INotifyPropertyChanged
+//{
+
+//    private decimal sizeA;
+//    private decimal sizeB;
+//    private decimal sizeC;
+//    public decimal SizeA
+//    {
+//        get { return sizeA; }
+//        set
+//        {
+//            if (sizeA != value) ;
+
+//            sizeA = value;
+//            OnPropertyChanged("SizeA");
+//            OnPropertyChanged("SizeC");
+//        }
+//    }
+
+//    public decimal SizeB
+//    {
+//        get { return sizeB; }
+//        set
+//        {
+//            if (sizeB != value) ;
+//            sizeB = value;
+//            OnPropertyChanged("SizeB");
+//            OnPropertyChanged("SizeC");
+//        }
+//    }
+
+//    public decimal SizeC
+//    {
+//        get { return sizeA + SizeB; }
+//        set
+//        {
+//            if (sizeC != value) ;
+//            sizeC = value;
+//            OnPropertyChanged("SizeC");
+//        }
+//    }
+
+//    public event PropertyChangedEventHandler PropertyChanged;
+
+
+//}
+//private void OnPropertyChanged(decimal rozmiar)
+//{
+//    if (PropertyChanged != null)
+//    {
+//        PropertyChanged(this, new PropertyChangedEventArgs(rozmiar));
+//    }
+//}
+//public Rozmiar()
+//{
+//    if (DesignMode.DesignModeEnable)
+//    {
+//        this.SizeA = ing.Size;
+//        this.SizeB = ingridient.Size;
+//    }
+
+//}
 
 
 
 
 
+
+
+
+//private BackgroundWorker _bgWorker = new BackgroundWorker();
+//private int _workerState;
+
+
+
+//public int WorkerState
+//{
+//    get { return _workerState; }
+//    set
+//    {
+//        _workerState = value;
+//        if (PropertyChanged != null)
+//            PropertyChanged(this, new PropertyChangedEventArgs("WorkerState"));
+//    }
+//}
+//public void Progress()
+//{
+//    _bgWorker.DoWork += (s, e) =>
+//     {
+//         for (int i = 0; i <= 100; i++)
+//         {
+//             System.Threading.Thread.Sleep(100);
+//             WorkerState = i;
+//         }
+//     };
+//    _bgWorker.RunWorkerAsync();
+//}
 
 
 

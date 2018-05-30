@@ -73,6 +73,7 @@
                 <TextBlock  Grid.Column="1" Grid.Row="1" Text="{Binding CurrentJuiceMachine.MaxCapacity}" Grid.ColumnSpan="2"></TextBlock>
             </Grid>
             <TextBlock Text="Ingredience:" Margin="0,10,0,0"/>
+            <!--<ProgressBar Width="180" Height="15" Minimum="0" Maximum="100" Value="{Binding WorkerState}" />-->
             <ListView ItemsSource="{Binding CurrentJuiceMachine.Ingridients, Mode=TwoWay}" HorizontalContentAlignment="Stretch">
                 <ListView.ItemTemplate>
                     <DataTemplate>
