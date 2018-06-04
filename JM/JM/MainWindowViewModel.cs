@@ -16,7 +16,6 @@ namespace JM
         public JuiceMashine CurrentJuiceMachine { get; set; } = new ZelmerJuiceMachine();
         
         public List<Ingridient> ListProducts { get; set; } = new List<Ingridient>();
-
         
         public ICommand AddCommand { get; set; }
 
@@ -31,7 +30,7 @@ namespace JM
             {
                 selectedIngridient = value;
                 selectedIngridient.Size = value.DefaultSize;
-                //this.RaisePropertyChanged();
+                RaisePropertyChanged(); 
             }
         }
         public MainWindowViewModel()
@@ -42,14 +41,9 @@ namespace JM
             
             AddCommand = new DelegateCommand(AddCommandExecute);
         }
-
         public void AddCommandExecute()
         {
-
             CurrentJuiceMachine.AddIngridient(SelectedIngridient);
-
         }
-
     }
-
 }

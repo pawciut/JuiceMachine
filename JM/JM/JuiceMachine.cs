@@ -8,57 +8,47 @@ using System.Threading.Tasks;
 
 namespace JM
 {
-
-    
-
     public abstract class JuiceMashine
-    
     {
-      
-
         Juice MakeJuice()
         {
             return new Juice();
         }
-
-
         public void AddIngridient(Ingridient ingridient)
         {
             if (ingridient != null)
             {
-
-                if (CurrentCapacity + ingridient.Size <= MaxCapacity)
+                if (CurrentCapacity + ingridient.Size  <= MaxCapacity)
                 {
                     bool isEmpty = Ingridients.Count == 0;
 
                     bool isExi = Ingridients.Any(exi => exi.Code == ingridient.Code);
 
-                    if (isEmpty)
+                    if (isEmpty)                                                                //JESLI LISTA JEST PUSTA 
                     {
-
                         Ingridients.Add(ingridient);
+
+                        //stworzyc kopie 
                     }
 
-                    else if (isExi)
+                    else if (isExi)                                                             //JESLI COS JEST NA LISCIE
                     {
-
                         foreach (Ingridient ing in Ingridients)
                         {
-                            if(ing.Code == ingridient.Code)
+                            if (ing.Code == ingridient.Code)
                             {
                                 ing.Size = ing.Size + ingridient.Size;
                             }
                         }
                     }
-                    else
+                    else                                                                        //JESLI NA LISCIE JEST PRODUKT ALE INNEGO TYPU NIZ DODAWANY
                     {
                         Ingridients.Add(ingridient);
                     }
                 }
-
             }
         }
-        public decimal CurrentCapacity //włąsciwość która na poczatku ma wartośc 0 i dla kazdego ingrideient z listy Ingridients wykona działanie by do 0 dodać size który jest zadeklarowany i zwróć ta sume.
+        public decimal CurrentCapacity
         {
             get
             {
@@ -70,15 +60,15 @@ namespace JM
                 return suma;
             }
         }
-        public abstract decimal MaxCapacity { get;  }
-        public abstract string NameJuiceMachine { get;  }
-        public ObservableCollection<Ingridient> Ingridients { get; set; } = new ObservableCollection<Ingridient>();//pojemniczek na nasze produkty//*****//powiadamia o tym ze element został dodany do Ingridients poprzez INotifyPropertChange
+        public abstract decimal MaxCapacity { get; }
+        public abstract string NameJuiceMachine { get; }
+        public ObservableCollection<Ingridient> Ingridients { get; set; } = new ObservableCollection<Ingridient>();
     }
     class Juice
     {
 
     }
-    class ZelmerJuiceMachine : JuiceMashine //przypisane na sztywno własciwosci
+    class ZelmerJuiceMachine : JuiceMashine
     {
         public override decimal MaxCapacity
         {
@@ -87,10 +77,8 @@ namespace JM
                 return 3;
             }
         }
-
         public override string NameJuiceMachine => "Zelmer";
     }
-
     class PhilipsJuiceMachine : JuiceMashine
     {
         public override decimal MaxCapacity => 2;
@@ -99,6 +87,24 @@ namespace JM
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

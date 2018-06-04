@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 
 namespace JM
 {
-
-
     public abstract class Ingridient : INotifyPropertyChanged
     {
         public abstract decimal DefaultSize { get; }
@@ -18,40 +16,25 @@ namespace JM
 
         public abstract string Icon { get; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public decimal Size { get; set; }
 
+        public event PropertyChangedEventHandler PropertyChanged;                           //implementujemy interfejs - chcemy by interfejs informował widok że coś się w nim zmieni
 
-
-        private decimal _size;
+        private decimal _size;                                                              //deklaracja właściwego pola klasy
         public decimal Size
         {
             get
             {
-                return _size;
+                return _size;                                                               //chce by zwracało mi size z rozmiar obecny plus dodawany
             }
+
             set
             {
-                
-                if (PropertyChanged != null) 
-                {
-                    _size = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                }
+                _size = value;                                                              //value - wartość przypisywana właściwości jest równa zmiennej
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
             }
         }
-
-        
     }
-
-
-        
-                                    
-        
-    
-
-
-
-
     class Banana : Ingridient
     {
         public override decimal DefaultSize => 0.5m;
@@ -59,30 +42,44 @@ namespace JM
         public override string Code => "Banan";
 
         public override string Icon => "http://www.i2clipart.com/cliparts/a/8/7/2/clipart-bananas-icon-a872.png";
-        
-
     }
-        class Milk : Ingridient
-        {
-            public override decimal DefaultSize => 0.8m;
+    class Milk : Ingridient
+    {
+        public override decimal DefaultSize => 0.8m;
 
-            public override string Code => "Mleko";
+        public override string Code => "Mleko";
 
-            public override string Icon => "http://icons.iconarchive.com/icons/jommans/cafe-noon/128/milk-icon.png";
-
-
-        }
-        class Strawberry : Ingridient
-        {
-            public override decimal DefaultSize => 0.2m;
-
-            public override string Code => "Truskawka";
-
-            public override string Icon => "https://vignette.wikia.nocookie.net/farmville2/images/6/6d/Strawberry.png/revision/latest?cb=20121010115153";
-
-
-        }
+        public override string Icon => "http://icons.iconarchive.com/icons/jommans/cafe-noon/128/milk-icon.png";
     }
+    class Strawberry : Ingridient
+    {
+        public override decimal DefaultSize => 0.2m;
+
+        public override string Code => "Truskawka";
+
+        public override string Icon => "https://vignette.wikia.nocookie.net/farmville2/images/6/6d/Strawberry.png/revision/latest?cb=20121010115153";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
