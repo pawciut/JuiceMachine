@@ -24,35 +24,12 @@ namespace JM
 
                     bool isExi = Ingridients.Any(exi => exi.Code == ingridient.Code);
 
-                    if (isEmpty)                                                                //JESLI LISTA JEST PUSTA 
+                    if (isEmpty)                                                                
                     {
-                        //Ingridients.Add(ingridient);
-
-                        if(ingridient.Code == "Banan")
-                        {
-                            Banana banan2 = new Banana();
-                            banan2.Size = ingridient.Size;
-                            Ingridients.Add(banan2);
-                        }
-                        if(ingridient.Code == "Mleko")
-                        {
-                            Milk milk2 = new Milk();
-                            milk2.Size = ingridient.Size;
-                            Ingridients.Add(milk2);
-                        }
-                        if(ingridient.Code =="Truskawka")
-                        {
-                            Strawberry truskawka2 = new Strawberry();
-                            truskawka2.Size = ingridient.Size;
-                            Ingridients.Add(truskawka2);
-                        }
-                        //STWORZYC KOPIE
-                        //1.chce rozpoznać code
-                        //2.stworzyć nowy obiekt
-                        //3.przepisac wartosci
+                        Ingridients.Add(ingridient.Copy()); 
                     }
 
-                    else if (isExi)                                                             //JESLI COS JEST NA LISCIE
+                    else if (isExi)                                                             
                     {
                         foreach (Ingridient ing in Ingridients)
                         {
@@ -62,26 +39,9 @@ namespace JM
                             }
                         }
                     }
-                    else                                                                        //JESLI NA LISCIE JEST PRODUKT ALE INNEGO TYPU NIZ DODAWANY
+                    else                                                                        
                     {
-                        if (ingridient.Code == "Banan")
-                        {
-                            Banana banan2 = new Banana();
-                            banan2.Size = ingridient.Size;
-                            Ingridients.Add(banan2);
-                        }
-                        if (ingridient.Code == "Mleko")
-                        {
-                            Milk milk2 = new Milk();
-                            milk2.Size = ingridient.Size;
-                            Ingridients.Add(milk2);
-                        }
-                        if (ingridient.Code == "Truskawka")
-                        {
-                            Strawberry truskawka2 = new Strawberry();
-                            truskawka2.Size = ingridient.Size;
-                            Ingridients.Add(truskawka2);
-                        }
+                        Ingridients.Add(ingridient.Copy());
                     }
                 }
             }
@@ -140,7 +100,31 @@ namespace JM
 
 
 
+//Ingridients.Add(ingridient);
 
+//if (ingridient.Code == "Banan")
+//{
+//    Banana banan2 = new Banana();
+//    banan2.Size = ingridient.Size;
+//    Ingridients.Add(banan2);
+//}
+//if (ingridient.Code == "Mleko")
+//{
+//    Milk milk2 = new Milk();
+//    milk2.Size = ingridient.Size;
+//    Ingridients.Add(milk2);
+//}
+//if (ingridient.Code == "Truskawka")
+//{
+//    Strawberry truskawka2 = new Strawberry();
+//    truskawka2.Size = ingridient.Size;
+//    Ingridients.Add(truskawka2);
+//}
+
+//STWORZYC KOPIE
+//1.chce rozpoznać code
+//2.stworzyć nowy obiekt
+//3.przepisac wartosci
 
 
 

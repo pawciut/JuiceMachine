@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
+
 namespace JM
 {
     public class MainWindowViewModel : BindableBase
@@ -38,7 +39,7 @@ namespace JM
             ListProducts.Add(new Banana());
             ListProducts.Add(new Milk());
             ListProducts.Add(new Strawberry());
-            
+
             AddCommand = new DelegateCommand(AddCommandExecute);
         }
         public void AddCommandExecute()
