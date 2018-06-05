@@ -26,9 +26,30 @@ namespace JM
 
                     if (isEmpty)                                                                //JESLI LISTA JEST PUSTA 
                     {
-                        Ingridients.Add(ingridient);
+                        //Ingridients.Add(ingridient);
 
-                        //stworzyc kopie 
+                        if(ingridient.Code == "Banan")
+                        {
+                            Banana banan2 = new Banana();
+                            banan2.Size = ingridient.Size;
+                            Ingridients.Add(banan2);
+                        }
+                        if(ingridient.Code == "Mleko")
+                        {
+                            Milk milk2 = new Milk();
+                            milk2.Size = ingridient.Size;
+                            Ingridients.Add(milk2);
+                        }
+                        if(ingridient.Code =="Truskawka")
+                        {
+                            Strawberry truskawka2 = new Strawberry();
+                            truskawka2.Size = ingridient.Size;
+                            Ingridients.Add(truskawka2);
+                        }
+                        //STWORZYC KOPIE
+                        //1.chce rozpoznać code
+                        //2.stworzyć nowy obiekt
+                        //3.przepisac wartosci
                     }
 
                     else if (isExi)                                                             //JESLI COS JEST NA LISCIE
@@ -43,7 +64,24 @@ namespace JM
                     }
                     else                                                                        //JESLI NA LISCIE JEST PRODUKT ALE INNEGO TYPU NIZ DODAWANY
                     {
-                        Ingridients.Add(ingridient);
+                        if (ingridient.Code == "Banan")
+                        {
+                            Banana banan2 = new Banana();
+                            banan2.Size = ingridient.Size;
+                            Ingridients.Add(banan2);
+                        }
+                        if (ingridient.Code == "Mleko")
+                        {
+                            Milk milk2 = new Milk();
+                            milk2.Size = ingridient.Size;
+                            Ingridients.Add(milk2);
+                        }
+                        if (ingridient.Code == "Truskawka")
+                        {
+                            Strawberry truskawka2 = new Strawberry();
+                            truskawka2.Size = ingridient.Size;
+                            Ingridients.Add(truskawka2);
+                        }
                     }
                 }
             }
