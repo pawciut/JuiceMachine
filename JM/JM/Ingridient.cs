@@ -11,25 +11,19 @@ namespace JM
     public abstract class Ingridient : INotifyPropertyChanged
     {
         public abstract decimal DefaultSize { get; }
-
         public abstract string Code { get; }
-
         public abstract string Icon { get; }
-
-        //public decimal Size { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;                           //implementujemy interfejs - chcemy by interfejs informował widok że coś się w nim zmieni
-
-        private decimal _size;                                                              //deklaracja właściwego pola klasy
+        public event PropertyChangedEventHandler PropertyChanged;                          
+        private decimal _size;                                                              
         public decimal Size
         {
             get
             {
-                return _size;                                                               //chce by zwracało mi size z rozmiar obecny plus dodawany
+                return _size;                                                               
             }
             set
             {
-                _size = value;                                                              //value - wartość przypisywana właściwości jest równa zmiennej
+                _size = value;                                                              
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
             }
         }
@@ -38,11 +32,8 @@ namespace JM
     class Banana : Ingridient
     {
         public override decimal DefaultSize => 0.5m;
-
         public override string Code => "Banan";
-
         public override string Icon => "http://www.i2clipart.com/cliparts/a/8/7/2/clipart-bananas-icon-a872.png";
-
         public override Ingridient Copy()
         {
             Banana banan2 = new Banana();
@@ -53,11 +44,8 @@ namespace JM
     class Milk : Ingridient
     {
         public override decimal DefaultSize => 0.8m;
-
         public override string Code => "Mleko";
-
         public override string Icon => "http://icons.iconarchive.com/icons/jommans/cafe-noon/128/milk-icon.png";
-
         public override Ingridient Copy()
         {
             Milk mleko2 = new Milk();
@@ -68,11 +56,8 @@ namespace JM
     class Strawberry : Ingridient
     {
         public override decimal DefaultSize => 0.2m;
-
         public override string Code => "Truskawka";
-
         public override string Icon => "https://vignette.wikia.nocookie.net/farmville2/images/6/6d/Strawberry.png/revision/latest?cb=20121010115153";
-
         public override Ingridient Copy()
         {
             Strawberry truskawki2 = new Strawberry();

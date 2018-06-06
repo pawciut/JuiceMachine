@@ -72,8 +72,14 @@
                 <TextBlock  Grid.Column="0" Grid.Row="1" Text="Max Capacity"></TextBlock>
                 <TextBlock  Grid.Column="1" Grid.Row="1" Text="{Binding CurrentJuiceMachine.MaxCapacity}" Grid.ColumnSpan="2"></TextBlock>
             </Grid>
+            
+            <TextBlock Text="Capacity" Margin="0,10,0,0"/>
+            <ProgressBar Height="20" HorizontalContentAlignment="Stretch"
+                         Minimum="0"
+                         Maximum="{Binding CurrentJuiceMachine.MaxCapacity}"
+                         Value="{Binding CurrentJuiceMachine.CurrentCapacity, Mode=OneWay}"
+                         />
             <TextBlock Text="Ingredience:" Margin="0,10,0,0"/>
-            <!--<ProgressBar Width="180" Height="15" Minimum="0" Maximum="100" Value="{Binding WorkerState}" />-->
             <ListView ItemsSource="{Binding CurrentJuiceMachine.Ingridients, Mode=TwoWay}" HorizontalContentAlignment="Stretch">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -86,11 +92,12 @@
                             <TextBlock Text="{Binding Code}" Grid.Column="1"/>
                             <Image Source="{Binding Icon}" Grid.Column="0" Height="32" Width="32"/>
                             <TextBlock Text="{Binding Size}" Grid.Column="2" TextAlignment="Right" />
-
+                            
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            
         </StackPanel>
     </Grid>
 </Window>

@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace JM
 {
-    public abstract class JuiceMashine
+    public abstract class JuiceMashine : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         Juice MakeJuice()
         {
             return new Juice();
@@ -17,7 +18,7 @@ namespace JM
         public void AddIngridient(Ingridient ingridient)
         {
             if (ingridient != null)
-            {
+            {   
                 if (CurrentCapacity + ingridient.Size  <= MaxCapacity)
                 {
                     bool isEmpty = Ingridients.Count == 0;
@@ -25,38 +26,40 @@ namespace JM
                     bool isExi = Ingridients.Any(exi => exi.Code == ingridient.Code);
 
                     if (isEmpty)                                                                
-                    {
-                        Ingridients.Add(ingridient.Copy()); 
+                    {     
+                        Ingridients.Add(ingridient.Copy());
+                        PropertyChanged(this, new PropertyChangedEventArgs("CurrentCapacity"));
                     }
-
                     else if (isExi)                                                             
-                    {
+                    {      
                         foreach (Ingridient ing in Ingridients)
                         {
                             if (ing.Code == ingridient.Code)
                             {
                                 ing.Size = ing.Size + ingridient.Size;
+                                PropertyChanged(this, new PropertyChangedEventArgs("CurrentCapacity"));
                             }
                         }
                     }
                     else                                                                        
-                    {
+                    {     
                         Ingridients.Add(ingridient.Copy());
+                        PropertyChanged(this, new PropertyChangedEventArgs("CurrentCapacity"));
                     }
                 }
             }
-        }
+        } 
         public decimal CurrentCapacity
         {
             get
-            {
+            {    
                 decimal suma = 0;
                 foreach (var ingridient in Ingridients)
-                {
+                {     
                     suma += ingridient.Size;
-                }
-                return suma;
-            }
+                }   
+                return suma; 
+            }  
         }
         public abstract decimal MaxCapacity { get; }
         public abstract string NameJuiceMachine { get; }
@@ -83,7 +86,6 @@ namespace JM
 
         public override string NameJuiceMachine => "Philips";
     }
-
 }
 
 
@@ -97,7 +99,15 @@ namespace JM
 
 
 
-
+//public decimal CC()
+//{
+//    decimal suma = 0;
+//    foreach (var ingridient in Ingridients)
+//    {
+//        suma += ingridient.Size;
+//    }
+//    return suma;
+//}
 
 
 //Ingridients.Add(ingridient);
