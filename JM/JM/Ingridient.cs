@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prism.Mvvm;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -8,62 +9,20 @@ using System.Threading.Tasks;
 
 namespace JM
 {
-    public abstract class Ingridient : INotifyPropertyChanged
+    public abstract class Ingridient : BindableBase
     {
-        public abstract decimal DefaultSize { get; }
-        public abstract string Code { get; }
-        public abstract string Icon { get; }
-        public event PropertyChangedEventHandler PropertyChanged;                          
-        private decimal _size;                                                              
-        public decimal Size
-        {
-            get
-            {
-                return _size;                                                               
-            }
-            set
-            {
-                _size = value;                                                              
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-            }
-        }
-        public abstract Ingridient Copy();
     }
-    class Banana : Ingridient
+
+    public class Banana : Ingridient
     {
-        public override decimal DefaultSize => 0.5m;
-        public override string Code => "Banan";
-        public override string Icon => "http://www.i2clipart.com/cliparts/a/8/7/2/clipart-bananas-icon-a872.png";
-        public override Ingridient Copy()
-        {
-            Banana banan2 = new Banana();
-            banan2.Size = Size;
-            return banan2;
-        }
     }
-    class Milk : Ingridient
+
+    public class Milk : Ingridient
     {
-        public override decimal DefaultSize => 0.8m;
-        public override string Code => "Mleko";
-        public override string Icon => "http://icons.iconarchive.com/icons/jommans/cafe-noon/128/milk-icon.png";
-        public override Ingridient Copy()
-        {
-            Milk mleko2 = new Milk();
-            mleko2.Size = Size;
-            return mleko2;
-        }
     }
-    class Strawberry : Ingridient
+
+    public class Strawberry : Ingridient
     {
-        public override decimal DefaultSize => 0.2m;
-        public override string Code => "Truskawka";
-        public override string Icon => "https://vignette.wikia.nocookie.net/farmville2/images/6/6d/Strawberry.png/revision/latest?cb=20121010115153";
-        public override Ingridient Copy()
-        {
-            Strawberry truskawki2 = new Strawberry();
-            truskawki2.Size = Size;
-            return truskawki2;
-        }
     }
 }
 
